@@ -9,10 +9,6 @@
 </script>
 
 <main>
-    <h1>
-        Services Page
-    </h1>
-
     {#if content}
         <RenderContent
                 model="page"
