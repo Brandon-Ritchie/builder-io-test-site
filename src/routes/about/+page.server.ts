@@ -1,7 +1,7 @@
-// src/routes/+page.server.js
+// src/routes/+page.server.ts
 import { getContent } from '@builder.io/sdk-svelte';
 
-export async function load({ page }) {
+export async function load({ page }: {page: string[]}) {
     if (!page) {
         page = []; // Set a default value if page is not provided
     }
@@ -10,7 +10,7 @@ export async function load({ page }) {
 
     // fetch your Builder content
     const content = await getContent({
-        model: 'services-page',
+        model: 'page',
         apiKey: 'f5da03336afa4ae38846f28cf31d6032',
         userAttributes: {
             urlPath,
@@ -19,8 +19,6 @@ export async function load({ page }) {
 
     // return content from `getContent()`
     return {
-        props: {
-            content,
-        },
+        content,
     };
 }
